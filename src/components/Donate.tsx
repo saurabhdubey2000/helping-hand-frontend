@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const Donate: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,8 @@ const Donate: React.FC = () => {
 
     return (
         <div>
-            <button className="donate-btn" onClick={() => setIsOpen(true)}>Donate Now</button>
+            {/* <button className="donate-btn" onClick={() => setIsOpen(true)}>Donate Now</button> */}
+            <Button className="donate" onClick={() => setIsOpen(true)}>DONATE NOW</Button>
 
             {isOpen && (
                 <div className="modal">
