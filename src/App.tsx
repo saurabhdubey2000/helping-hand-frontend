@@ -7,6 +7,7 @@ import About from './pages/About';
 import Detail from './pages/Detail';
 import DonationGrid from './pages/DonationGrid';
 import Volunteer from './pages/Volunteer';
+import Footer from './components/Footer';
 // import Router from './routes/Router'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Detail/>
       <DonationGrid/>
       <Volunteer/>
+      <Footer/>
     </div>
   )
 }
