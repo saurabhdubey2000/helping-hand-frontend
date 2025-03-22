@@ -3,6 +3,7 @@ import { Phone, Email } from "@mui/icons-material";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { useState } from "react";
+import Donate from "./Donate";
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
@@ -36,9 +37,12 @@ const Header = () => {
               <Nav.Link href="#">GET INVOLVED</Nav.Link>
               <Nav.Link href="#">SUCCESS CASE</Nav.Link>
               <Nav.Link href="#">CONTACT US</Nav.Link>
+              {/* add by RJ */}
+              <Nav.Link href="#">LEGAL DOCUMENT</Nav.Link>
             </Nav>
             <div className="buttons">
               <Button className="donate">DONATE NOW</Button>
+              <Donate/>
               <Button className="login">Login Now</Button>
             </div>
           </Navbar.Collapse>
