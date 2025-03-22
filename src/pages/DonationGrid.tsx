@@ -41,31 +41,6 @@ const DonationGrid: React.FC = () => {
         amount: "10,00,000/-",
         name: "OM PARMESHWAR DHENGALE",
       },
-      {
-        image: donationImage,
-        amount: "29,84,000/-",
-        name: "MS. SAMRUDDHI MINEKAR",
-      },
-      {
-        image: donationImage,
-        amount: "Rs.35.63 Lakh",
-        name: "URGENT APPEAL FOR MASTER BIGHNESH SAHOO",
-      },
-      {
-        image: donationImage, // ✅ Corrected image reference
-        amount: "10,00,000/-",
-        name: "OM PARMESHWAR DHENGALE",
-      },
-      {
-        image: donationImage,
-        amount: "29,84,000/-",
-        name: "MS. SAMRUDDHI MINEKAR",
-      },
-      {
-        image: donationImage,
-        amount: "Rs.35.63 Lakh",
-        name: "URGENT APPEAL FOR MASTER BIGHNESH SAHOO",
-      },
   ];
 
   return (

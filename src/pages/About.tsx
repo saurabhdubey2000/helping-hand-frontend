@@ -9,10 +9,7 @@ const AboutSection = () => {
           Together, We <br /> Stand, Together, <br /> <span>We Care</span>
         </h2>
         <p>
-          At Cancer Care Mission Trust, we unite to bring lasting change,
-          supporting those in need. Through kindness, dedication, and
-          unwavering efforts, we offer hope, care, and strength to those
-          battling cancer, ensuring no one fights alone.
+        At Helping Hand NGO, we unite to bring lasting change, offering support to those in need. Whether it’s access to treatment, poverty relief, or urgent assistance, our kindness, dedication, and unwavering efforts ensure that no one is left behind. Together, we bring hope, care, and strength to every life we touch
         </p>
       </div>
       <div className="stats">
@@ -21,7 +18,7 @@ const AboutSection = () => {
           <p>People We Helped In 2023</p>
         </div>
         <div className="stat">
-          <span className="number purple">130M+</span>
+          <span className="number purple">130+</span>
           <p>Volunteers in 2023</p>
         </div>
         <div className="stat">
