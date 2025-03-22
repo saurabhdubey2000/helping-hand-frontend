@@ -36,7 +36,7 @@ const Header = () => {
             <img src={Logo} alt="Cancer Care Logo" className="logo" />
             <h3 className="logo-title">Helping Hand Social Welfare Foundation</h3>
           </Navbar.Brand>
-          <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} />
+          <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
           <Navbar.Collapse>
             <Nav className="ms-auto nav-links">
               <Nav.Link href="#">ABOUT</Nav.Link>
