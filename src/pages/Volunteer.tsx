@@ -64,7 +64,7 @@ const Volunteer: React.FC = () => {
       </p>
       <Slider {...settings}>
         {volunteers.map((volunteer, index) => (
-          <div key={index} className="volunteer-card">
+          <div key={index} className="volunteer-card" >
             <img src={volunteer.image} alt={volunteer.name} className="volunteer-image" />
             <h3>{volunteer.name}</h3>
           </div>
