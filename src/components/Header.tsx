@@ -48,7 +48,7 @@ const Header = () => {
               <Nav.Link href="#">LEGAL DOCUMENT</Nav.Link>
             </Nav>
             <div className="buttons">
-              <Button className="donate">DONATE NOW</Button>
+             
               <Donate/>
               {/* <Button className="login">Login Now</Button> */}
             </div>
