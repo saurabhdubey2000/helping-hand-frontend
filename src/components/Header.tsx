@@ -1,7 +1,7 @@
 import "../assets/styles/global.scss";
 import { Phone, Email } from "@mui/icons-material";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { useState } from "react";
 import Donate from "./Donate";
 import Logo from "../assets/images/logo1.png"
@@ -19,7 +19,7 @@ const Header = () => {
             <Phone /> <span>+91 9322282082</span>
             <Email /> <span>ishaan@helpinghandngo.in</span>
             <div className="social-icons">
-              <a href="#"><Facebook /></a>
+              <a href="#"><Facebook /></a>a
               <a href="#"><Instagram /></a>
               <a href="#"><LinkedIn /></a>
             </div>
@@ -48,6 +48,7 @@ const Header = () => {
               <Nav.Link href="#">LEGAL DOCUMENT</Nav.Link>
             </Nav>
             <div className="buttons">
+             
               <Donate/>
               {/* <Button className="login">Login Now</Button> */}
             </div>
