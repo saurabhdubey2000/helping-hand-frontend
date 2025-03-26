@@ -1,7 +1,7 @@
 import "../assets/styles/global.scss";
 import { Phone, Email } from "@mui/icons-material";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState } from "react";
 import Donate from "./Donate";
 import Logo from "../assets/images/logo1.png"
