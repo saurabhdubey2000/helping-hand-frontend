@@ -576,7 +576,7 @@ header {
             transition: background 0.3s;
 
             &:hover {
-                background-color: darken(#3399cc, 10%);
+                background-color: #3399cc;
             }
         }
     }
@@ -593,14 +593,13 @@ header {
     transition: background 0.3s;
 
     &:hover {
-        background-color: darken(#3399cc, 10%);
+        background-color: #3399cc;
     }
   }
 
 // footer css 
 .footer {
   background: #fff;
- 
   text-align: left;
 }
 
