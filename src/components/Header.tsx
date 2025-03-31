@@ -19,7 +19,7 @@ const Header = () => {
             <Phone /> <span>+91 9322282082</span>
             <Email /> <span>ishaan@helpinghandngo.in</span>
             <div className="social-icons">
-              <a href="#"><Facebook /></a>
+              <a href="#"><Facebook /></a>a
               <a href="#"><Instagram /></a>
               <a href="#"><LinkedIn /></a>
             </div>
@@ -48,6 +48,7 @@ const Header = () => {
               <Nav.Link href="#">LEGAL DOCUMENT</Nav.Link>
             </Nav>
             <div className="buttons">
+             
               <Donate/>
               {/* <Button className="login">Login Now</Button> */}
             </div>
