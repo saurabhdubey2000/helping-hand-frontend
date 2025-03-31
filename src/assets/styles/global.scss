@@ -605,18 +605,12 @@ header {
 .footer {
   background: #fff;
   text-align: left;
-}
-
-.footer-container {
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  // border-bottom: 1px solid #ccc;
 }
 
 .footer-section {
   flex: 1;
-  padding: 30px;
+  padding: 5px 30px;
 }
 
 .footer-section h3 {
