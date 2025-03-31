@@ -44,7 +44,7 @@ const DonationGrid: React.FC = () => {
   ];
 
   return (
-    <div className="donation-grid">
+    <div className="donation-grid" id="donation-grid">
       <h4>Urgent Care, Immediate Support</h4>
       <h2>
         Swift Assistance for Critical Medical <span>Emergencies</span>

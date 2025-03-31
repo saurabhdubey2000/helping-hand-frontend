@@ -3,7 +3,7 @@
 const AboutSection = () => {
   return (
     <section className="about-section">
-      <div className="content">
+      <div className="content" id="about">
         <h4>Hope, Strength, and Compassion for All</h4>
         <h2>
           Together, We <br /> Stand, Together, <br /> <span>We Care</span>

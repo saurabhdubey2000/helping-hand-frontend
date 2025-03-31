@@ -8,7 +8,9 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer">
+
+    // add id by rajesh in footer
+    <footer className="footer" id="footer">
       <div className="footer-container">
         
         {/* About Us Section */}
