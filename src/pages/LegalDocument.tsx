@@ -1,5 +1,4 @@
 import "../assets/styles/global.scss";
-import { Container } from "react-bootstrap";
 
 const LegalDocument = () => {
   return (

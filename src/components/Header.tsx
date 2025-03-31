@@ -17,7 +17,7 @@ const Header = () => {
   // Modal Open/Close Handlers
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-  const openWhatsApp = (message) => {
+  const openWhatsApp = (message: string | number | boolean) => {
     const phoneNumber = "919004545410"; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank"); // Opens in new tab
