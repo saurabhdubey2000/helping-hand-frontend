@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
@@ -7,27 +7,26 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer: React.FC = () => {
-  return (
-    <footer className="footer">
-      <div className="footer-container">
-        
-        {/* About Us Section */}
-        <div className="footer-section">
-          <h3>About us</h3>
-          <div className="underline"></div>
-          <p>
-            At Cancer Care Mission Trust, we stand out from other organizations in our unwavering 
-            commitment and unique approach towards combating cancer.
-          </p>
-          <span className="share-text">Share:</span>
-          <div className="social-icons">
-            <a href="#"><FacebookIcon /></a>
-            <a href="#"><InstagramIcon /></a>
-            <a href="#"><LinkedInIcon /></a>
-          </div>
-        </div>
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    email: "",
+  });
 
-        {/* Get in Touch Section */}
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    console.log("Form Submitted", formData);
+  };
+  return (
+    <footer>
+      <div className="footer">
+      <div className="footer-container">
+        {/* About Us Section */}
         <div className="footer-section">
           <h3>Get in Touch</h3>
           <div className="underline"></div>
@@ -35,11 +34,80 @@ const Footer: React.FC = () => {
           <p><PhoneIcon /> For Any Queries: 9322282082</p>
           <p><EmailIcon /> info@ccmorg.in</p>
         </div>
+        <div className="footer-section">
+        <span className="share-text">Share:</span>
+        <div className="social-icons">
+          <a href="#"><FacebookIcon /></a>
+          <a href="#"><InstagramIcon /></a>
+          <a href="#"><LinkedInIcon /></a>
+        </div>
+      </div>
+      </div>
+      {/* Get in Touch Section */}
+      <div className="footer-section">
+      <form
+        onSubmit={handleSubmit}
+        className="">
+        <h2 className="">
+          Contact Us
+        </h2>
+        <div className="mb-4  ">
+          <label className="">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+            className=""
+          />
+        </div>
+        <div className="mb-4">
+          <label className="">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            required
+            className=""
+          />
+        </div>
+        <div className="mb-4">
+          <label className="">Mobile Number</label>
+          <input
+            type="tel"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            required
+            className=""
+          />
+        </div>
+        <div className="mb-4">
+          <label className="">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className=""
+          />
+        </div>
+        <button
+          type="submit"
+          className=""
+        >
+          Submit
+        </button>
+      </form>
+      </div>
       </div>
       <hr />
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',padding:'0px 10px'}}>
-        <p style={{ color: '#a5a5a5'}}>© 2025 Helping Hand All Rights Reserved .</p>
-        <p style={{ color: '#a5a5a5'}}>Designed by Celebrity Tech Solutions Pvt Ltd</p>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0px 10px' }}>
+        <p style={{ color: '#a5a5a5' }}>© 2025 Helping Hand All Rights Reserved .</p>
+        <p style={{ color: '#a5a5a5' }}>Designed by Celebrity Tech Solutions Pvt Ltd</p>
       </div>
     </footer>
   );
