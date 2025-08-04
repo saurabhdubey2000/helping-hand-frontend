@@ -25,84 +25,75 @@ const Footer: React.FC = () => {
   return (
     <footer>
       <div className="footer">
-      <div className="footer-container">
-        {/* About Us Section */}
+        {/* Get in Touch Section */}
         <div className="footer-section">
-          <h3>Get in Touch</h3>
-          <div className="underline"></div>
-          <p><LocationOnIcon /> G-55, The Zone Mall, Near Food Lord Hotel, Chandavarkar Lane, Borivali (W), Mumbai 400092, Maharashtra (INDIA)</p>
-          <p><PhoneIcon /> For Any Queries: 9322282082</p>
-          <p><EmailIcon /> info@ccmorg.in</p>
+          <form onSubmit={handleSubmit}>
+            <h2>Contact Us</h2>
+            <div>
+              <label>First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <label>Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <label>Mobile Number</label>
+              <input
+                type="tel"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button type="submit">Submit</button>
+          </form>
         </div>
-        <div className="footer-section">
-        <span className="share-text">Share:</span>
-        <div className="social-icons">
-          <a href="#"><FacebookIcon /></a>
-          <a href="#"><InstagramIcon /></a>
-          <a href="#"><LinkedInIcon /></a>
+        <div className="footer-container">
+          {/* About Us Section */}
+          <div className="footer-section">
+            <h3>Get in Touch</h3>
+            <div className="underline"></div>
+            <p><LocationOnIcon /> G-55, The Zone Mall, Near Food Lord Hotel, Chandavarkar Lane, Borivali (W), Mumbai 400092, Maharashtra (INDIA)</p>
+            <p><PhoneIcon /> For Any Queries: 9322282082</p>
+            <p><EmailIcon /> info@ccmorg.in</p>
+          </div>
+          <div className="footer-section">
+            <span className="share-text">Share:</span>
+            <div className="social-icons">
+              <a href="#"><FacebookIcon /></a>
+              <a href="#"><InstagramIcon /></a>
+              <a href="#"><LinkedInIcon /></a>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-      {/* Get in Touch Section */}
-      <div className="footer-section">
-      <form
-        onSubmit={handleSubmit}
-        className="">
-        <h2 className="">
-          Contact Us
-        </h2>
-        <div className="mb-4  ">
-          <label className="">First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-            className=""
-          />
-        </div>
-        <div className="mb-4">
-          <label className="">Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-            className=""
-          />
-        </div>
-        <div className="mb-4">
-          <label className="">Mobile Number</label>
-          <input
-            type="tel"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            required
-            className=""
-          />
-        </div>
-        <div className="mb-4">
-          <label className="">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className=""
-          />
-        </div>
-        <button
-          type="submit"
-          className=""
-        >
-          Submit
-        </button>
-      </form>
-      </div>
       </div>
       <hr />
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0px 10px' }}>

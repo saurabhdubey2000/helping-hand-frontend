@@ -5,7 +5,7 @@ const LegalDocument = () => {
    
       <div className="legal-document">
       <h2>Legal Documents</h2>
-      <p>Yaha aapke legal documents ka content hoga.</p>
+      <p>Legal document</p>
     </div>
     
   );

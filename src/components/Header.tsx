@@ -54,9 +54,9 @@ const Header = () => {
           <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
           <Navbar.Collapse>
             <Nav className="ms-auto nav-links">
-              <Nav.Link href="#footer">ABOUT</Nav.Link>
+              <Nav.Link href="#about-section">ABOUT</Nav.Link>
               <Nav.Link href="#donation-grid">CAMPAIGN</Nav.Link>
-              <Nav.Link href="#">GET INVOLVED</Nav.Link>
+              <Nav.Link href="#volunteer-section">GET INVOLVED</Nav.Link>
               <Nav.Link href="#about">SUCCESS CASE</Nav.Link>
               <Nav.Link href="#">CONTACT US</Nav.Link>
               {/* add by RJ */}

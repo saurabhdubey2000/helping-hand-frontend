@@ -1,7 +1,8 @@
 import React from "react";
 // import "./DonationGrid.scss";
-import donationImage from "../assets/images/donation-grid.jpg"; // ✅ Unique Name
-
+import donationImage from "../assets/images/donation-grid.jpg"; 
+import P1 from "../assets/images/P1.jpg"; 
+import P2 from "../assets/images/P2.jpg";
 interface DonationCardProps {
   image: string;
   amount: string;
@@ -22,25 +23,20 @@ const DonationCard: React.FC<DonationCardProps> = ({ image, amount, name }) => {
 const DonationGrid: React.FC = () => {
   const donations = [
     {
-      image: donationImage, // ✅ Corrected image reference
+      image: donationImage,
       amount: "10,00,000/-",
       name: "OM PARMESHWAR DHENGALE",
     },
     {
-      image: donationImage,
+      image: P1,
       amount: "29,84,000/-",
       name: "MS. SAMRUDDHI MINEKAR",
     },
     {
-      image: donationImage,
+      image: P2,
       amount: "Rs.35.63 Lakh",
       name: "URGENT APPEAL FOR MASTER BIGHNESH SAHOO",
     },
-    {
-        image: donationImage, // ✅ Corrected image reference
-        amount: "10,00,000/-",
-        name: "OM PARMESHWAR DHENGALE",
-      },
   ];
 
   return (
