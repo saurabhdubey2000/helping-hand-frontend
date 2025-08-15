@@ -9,7 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const Footer: React.FC = () => {
   const [formData, setFormData] = useState({
     firstName: "",
-    lastName: "",
+    // lastName: "",
     mobile: "",
     email: "",
   });
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <h2>Contact Us</h2>
             <div>
-              <label>First Name</label>
+              <label>Name</label>
               <input
                 type="text"
                 name="firstName"
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label>Last Name</label>
               <input
                 type="text"
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                 onChange={handleChange}
                 required
               />
-            </div>
+            </div> */}
 
             <div>
               <label>Mobile Number</label>
