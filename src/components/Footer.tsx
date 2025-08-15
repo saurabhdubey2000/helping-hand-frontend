@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
   };
   return (
     <footer>
-      <div className="footer">
+      <div className="footer" id="footer">
         {/* Get in Touch Section */}
         <div className="footer-section">
           <form onSubmit={handleSubmit}>

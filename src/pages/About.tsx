@@ -2,7 +2,7 @@
 
 const AboutSection = () => {
   return (
-    <section className="about-section">
+    <section className="about-section" id="donation">
       <div className="content" id="about">
         <h4>Hope, Strength, and Compassion for All</h4>
         <h2>

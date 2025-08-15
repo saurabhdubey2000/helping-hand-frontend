@@ -31,7 +31,7 @@ const Volunteer: React.FC = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -48,7 +48,7 @@ const Volunteer: React.FC = () => {
   };
 
   return (
-    <div className="volunteer-section">
+    <div className="volunteer-section" id="volunteer-section">
       <h4>Dedicated Hearts, Unstoppable Impact</h4>
       <h2>
         Meet Our <span>Volunteers</span>

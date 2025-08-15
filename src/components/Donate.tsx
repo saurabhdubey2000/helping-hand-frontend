@@ -51,12 +51,26 @@ const Donate: React.FC = () => {
             {isOpen && (
                 <div className="modal">
                     <div className="modal-content">
-                        <span className="close" onClick={() => setIsOpen(false)}>&times;</span>
-                        <h3>Enter Your Details</h3>
-                        <input type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} />
+                        
+                        <h3 className="modal-header">Payment Details<span className="close" onClick={() => setIsOpen(false)}>&times;</span></h3>
+                        {/* <input type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} />
                         <input type="text" placeholder="Enter your contact number" value={contact} onChange={(e) => setContact(e.target.value)} />
-                        <input type="number" placeholder="Enter amount (INR)" value={amount} onChange={(e) => setAmount(e.target.value)} />
-                        <button className="pay-btn" onClick={openRazorpay}>Proceed to Pay</button>
+                        <input type="number" placeholder="Enter amount (INR)" value={amount} onChange={(e) => setAmount(e.target.value)} /> */}
+                        {/* <button className="pay-btn" onClick={openRazorpay}>Proceed to Pay</button> */}
+                        <div className="payment-details">
+                            <div className="detail-row">
+                                <span className="label">Account Name:</span>
+                                <span className="value">HELPING HAND SOCIAL AND WELFARE FOUNDATION</span>
+                            </div>
+                            <div className="detail-row">
+                                <span className="label">Account No:</span>
+                                <span className="value">925020034093667</span>
+                            </div>
+                            <div className="detail-row">
+                                <span className="label">IFSC Code:</span>
+                                <span className="value">UTIB0004707</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}

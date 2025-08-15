@@ -11,7 +11,7 @@ const WhatsAppButton = () => {
   const handleCloseModal = () => setShowModal(false);
 
   // Open WhatsApp with predefined message
-  const openWhatsApp = (message) => {
+  const openWhatsApp = (message: any) => {
     const phoneNumber = "919004545410"; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
