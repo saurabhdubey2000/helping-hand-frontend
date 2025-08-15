@@ -5,12 +5,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Ismail from "../assets/images/co-ordinator.jpg";
 import ActiveM from "../assets/images/active-m.jpg";
 import ActiveM2 from "../assets/images/active-m2.jpg";
+import ActiveM3 from "../assets/images/active-m3.jpeg";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const volunteers = [
   { name: "Ismail Khan (Co-Ordinator)", image: Ismail },
   { name: "Ramesh Rathod (Active Member)", image: ActiveM },
   { name: "Shyam Rathod (Active Member)", image: ActiveM2 },
+  { name: "Arbaz Burhan Patel (Active Member)", image: ActiveM3 },
 ];
 
 // Custom Arrows

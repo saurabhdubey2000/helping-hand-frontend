@@ -8,11 +8,21 @@ import Logo from "../assets/images/helping_hand_ngo.jpeg"
 // add by RJ
 import { WhatsApp } from "@mui/icons-material";
 import { Modal, Button } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
+import CarouselImg from "../assets/images/pencard.jpeg"
+import CarouselImg2 from "../assets/images/doc1.jpeg"
+import CarouselImg3 from "../assets/images/doc2.jpeg"
+
+
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
 //  add by rj 
   const [showModal, setShowModal] = useState(false);
+
+  //  add by rj 
+  const [showLegalModal, setShowLegalModal] = useState(false);
+
 
   // Modal Open/Close Handlers
   const handleOpenModal = () => setShowModal(true);
@@ -30,9 +40,11 @@ const Header = () => {
       <div className="top-bar">
         <div className="desktop-view">
           <span>Welcome to Helping Hand Social Welfare Foundation</span>
-          <div className="contact-info">
-            <Phone /> <span>+91 9004545410</span>
-            <Email /> <span>foundationhelpinghandsocialand@gmail.com</span>
+          <div className="contact-info" id="headerInfo">
+            <Phone /> <span><a href="tel:+919004545410">+91 9004545410</a></span>
+            <Email /> <span><a href="mailto:foundationhelpinghandsocialand@gmail.com">
+                       foundationhelpinghandsocialand@gmail.com
+            </a></span>
             <div className="social-icons">
               <a href="#"><Facebook /></a>
               <a href="#"><Instagram /></a>
@@ -59,7 +71,9 @@ const Header = () => {
               <Nav.Link href="#about">SUCCESS CASE</Nav.Link>
               <Nav.Link href="#footer">CONTACT US</Nav.Link>
               {/* add by RJ */}
-              <Nav.Link href="#">LEGAL DOCUMENT</Nav.Link>
+               <Nav.Link href="#" onClick={() => setShowLegalModal(true)}>
+                LEGAL DOCUMENT
+              </Nav.Link>
             </Nav>
             <div className="buttons">
              
@@ -102,6 +116,66 @@ const Header = () => {
           </div>
         </Modal.Body>
       </Modal>
+
+         {/* Add by RJ */}
+       {/* Legal Document Modal */}
+      <Modal 
+  show={showLegalModal} 
+  onHide={() => setShowLegalModal(false)} 
+  centered 
+  dialogClassName="legal-modal"
+>
+  <Modal.Header closeButton>
+    <Modal.Title>Legal Document</Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+    <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={CarouselImg}
+          alt="First slide"
+        />
+        {/* <Carousel.Caption>
+          <h3>Uniting Hearts to Fight Cancer</h3>
+          <p>Every battle is unique, but no one fights alone.</p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={CarouselImg2}
+          alt="Second slide"
+        />
+        {/* <Carousel.Caption>
+          <h3>Helping Hands, Changing Lives</h3>
+          <p>Providing support and care to those in need.</p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={CarouselImg3}
+          alt="Third slide"
+        />
+        {/* <Carousel.Caption>
+          <h3>Together, We Make a Difference</h3>
+          <p>Join us in the fight against poverty.</p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+    </Carousel>
+  </Modal.Body>
+
+  <Modal.Footer>
+    <Button variant="secondary" onClick={() => setShowLegalModal(false)}>
+      Close
+    </Button>
+  </Modal.Footer>
+</Modal>
+
       
     </header>
   );

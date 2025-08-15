@@ -78,12 +78,14 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer-container">
           {/* About Us Section */}
-          <div className="footer-section">
+          <div className="footer-section" id="footerInfo">
             <h3>Get in Touch</h3>
             <div className="underline"></div>
-            <p><LocationOnIcon /> G-55, The Zone Mall, Near Food Lord Hotel, Chandavarkar Lane, Borivali (W), Mumbai 400092, Maharashtra (INDIA)</p>
-            <p><PhoneIcon /> For Any Queries: 9322282082</p>
-            <p><EmailIcon /> info@ccmorg.in</p>
+            <p><LocationOnIcon /> Address Imam Wada Azmi Nagar Milan Near Akashwani Gate No 7 Malwani Malad West Mumbai Maharashtra 400095</p>
+            <p><PhoneIcon />  For Any Queries: <a href="tel:+919004545410">+91 9004545410</a></p>
+            <p><EmailIcon />  <a href="mailto:foundationhelpinghandsocialand@gmail.com">
+              foundationhelpinghandsocialand@gmail.com
+            </a></p>
           </div>
           <div className="footer-section">
             <span className="share-text">Share:</span>
