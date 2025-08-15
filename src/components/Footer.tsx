@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
             <span className="share-text">Share:</span>
             <div className="social-icons">
               <a href="#"><FacebookIcon /></a>
-              <a href="#"><InstagramIcon /></a>
+              <a href="https://www.instagram.com/hh_socialwelfare?igsh=OWpmdXhwN3R6ZDFr" target="_blank"><InstagramIcon /></a>
               <a href="#"><LinkedInIcon /></a>
             </div>
           </div>
