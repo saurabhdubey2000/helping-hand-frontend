@@ -5,34 +5,41 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState } from "react";
 import Donate from "./Donate";
 import Logo from "../assets/images/helping_hand_ngo.jpeg"
-// add by RJ
 import { WhatsApp } from "@mui/icons-material";
 import { Modal, Button } from "react-bootstrap";
-import { Carousel } from "react-bootstrap";
 import CarouselImg from "../assets/images/pencard.jpeg"
 import CarouselImg2 from "../assets/images/doc1.jpeg"
 import CarouselImg3 from "../assets/images/doc2.jpeg"
+import Domi from "../assets/images/domi.jpg"
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
-//  add by rj 
   const [showModal, setShowModal] = useState(false);
 
-  //  add by rj 
   const [showLegalModal, setShowLegalModal] = useState(false);
 
+  const [index, setIndex] = useState(0);
 
-  // Modal Open/Close Handlers
+  const images = [CarouselImg, CarouselImg2, CarouselImg3, Domi];
+
+  const handlePrev = () => {
+    setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
   const openWhatsApp = (message: string | number | boolean) => {
-    const phoneNumber = "919004545410"; // Replace with your WhatsApp number
+    const phoneNumber = "919004545410";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank"); // Opens in new tab
+    window.open(url, "_blank");
   };
-  
+
 
   return (
     <header>
@@ -43,7 +50,7 @@ const Header = () => {
           <div className="contact-info" id="headerInfo">
             <Phone /> <span><a href="tel:+919004545410">+91 9004545410</a></span>
             <Email /> <span><a href="mailto:foundationhelpinghandsocialand@gmail.com">
-                       foundationhelpinghandsocialand@gmail.com
+              foundationhelpinghandsocialand@gmail.com
             </a></span>
             <div className="social-icons">
               <a href="#"><Facebook /></a>
@@ -71,23 +78,21 @@ const Header = () => {
               <Nav.Link href="#about">SUCCESS CASE</Nav.Link>
               <Nav.Link href="#footer">CONTACT US</Nav.Link>
               {/* add by RJ */}
-               <Nav.Link href="#" onClick={() => setShowLegalModal(true)}>
+              <Nav.Link href="#" onClick={() => setShowLegalModal(true)}>
                 LEGAL DOCUMENT
               </Nav.Link>
             </Nav>
             <div className="buttons">
-             
-              <Donate/>
+
+              <Donate />
               {/* <Button className="login">Login Now</Button> */}
             </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
-      {/* add by Rj for WhatsApp */}
-
-       {/* WhatsApp Floating Button */}
-       <div className="whatsapp-float" onClick={handleOpenModal}>
+      {/* WhatsApp Floating Button */}
+      <div className="whatsapp-float" onClick={handleOpenModal}>
         <WhatsApp />
       </div>
 
@@ -117,66 +122,43 @@ const Header = () => {
         </Modal.Body>
       </Modal>
 
-         {/* Add by RJ */}
-       {/* Legal Document Modal */}
-      <Modal 
-  show={showLegalModal} 
-  onHide={() => setShowLegalModal(false)} 
-  centered 
-  dialogClassName="legal-modal"
->
-  <Modal.Header closeButton>
-    <Modal.Title>Legal Document</Modal.Title>
-  </Modal.Header>
+      {/* Add by RJ */}
+      {/* Legal Document Modal */}
+      <Modal
+        show={showLegalModal}
+        onHide={() => setShowLegalModal(false)}
+        centered
+        dialogClassName="legal-modal"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Legal Document</Modal.Title>
+        </Modal.Header>
 
-  <Modal.Body>
-    <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={CarouselImg}
-          alt="First slide"
-        />
-        {/* <Carousel.Caption>
-          <h3>Uniting Hearts to Fight Cancer</h3>
-          <p>Every battle is unique, but no one fights alone.</p>
-        </Carousel.Caption> */}
-      </Carousel.Item>
+        <Modal.Body className="d-flex align-items-center justify-content-center">
+          {/* Left Arrow */}
+          <button className="custom-arrow left-arrow" onClick={handlePrev}>
+            <FaArrowLeft size={28} />
+          </button>
 
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={CarouselImg2}
-          alt="Second slide"
-        />
-        {/* <Carousel.Caption>
-          <h3>Helping Hands, Changing Lives</h3>
-          <p>Providing support and care to those in need.</p>
-        </Carousel.Caption> */}
-      </Carousel.Item>
+          {/* Document Image */}
+          <img
+            src={images[index]}
+            alt={`Document ${index + 1}`}
+            className="doc-image"
+          />
 
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={CarouselImg3}
-          alt="Third slide"
-        />
-        {/* <Carousel.Caption>
-          <h3>Together, We Make a Difference</h3>
-          <p>Join us in the fight against poverty.</p>
-        </Carousel.Caption> */}
-      </Carousel.Item>
-    </Carousel>
-  </Modal.Body>
+          {/* Right Arrow */}
+          <button className="custom-arrow right-arrow" onClick={handleNext}>
+            <FaArrowRight size={28} />
+          </button>
+        </Modal.Body>
 
-  <Modal.Footer>
-    <Button variant="secondary" onClick={() => setShowLegalModal(false)}>
-      Close
-    </Button>
-  </Modal.Footer>
-</Modal>
-
-      
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowLegalModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </header>
   );
 };
