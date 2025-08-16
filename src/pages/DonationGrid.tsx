@@ -16,6 +16,7 @@ interface DonationCardProps {
 interface Donation {
   image: string;
   amount: string;
+  image2?: string;
   name: string;
   accountName: string;
   accountNo: string;
