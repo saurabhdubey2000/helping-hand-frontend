@@ -1,7 +1,7 @@
 import "../assets/styles/global.scss";
 import { Phone, Email } from "@mui/icons-material";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { useState } from "react";
 import Donate from "./Donate";
 import Logo from "../assets/images/helping_hand_ngo.jpeg"
@@ -12,8 +12,6 @@ import CarouselImg2 from "../assets/images/doc1.jpeg"
 import CarouselImg3 from "../assets/images/doc2.jpeg"
 import Domi from "../assets/images/domi.jpg"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
-
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
@@ -39,6 +37,10 @@ const Header = () => {
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
+
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [campaignOpen, setCampaignOpen] = useState(false);
+  const [involvedOpen, setInvolvedOpen] = useState(false);
 
 
   return (
@@ -73,12 +75,40 @@ const Header = () => {
           <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
           <Navbar.Collapse>
             <Nav className="ms-auto nav-links">
-              <Nav.Link href="#donation-grid">CAMPAIGN</Nav.Link>
-              <Nav.Link href="#footer">GET INVOLVED</Nav.Link>
-              <Nav.Link href="#about">SUCCESS CASE</Nav.Link>
-              <Nav.Link href="#footer">CONTACT US</Nav.Link>
+              <NavDropdown title="ABOUT" id="about-dropdown" show={aboutOpen} onMouseEnter={() => setAboutOpen(true)} onMouseLeave={() => setAboutOpen(false)}>
+                <NavDropdown.Item href="#about">About</NavDropdown.Item>
+                <NavDropdown.Item href="#events">Events & Gallery</NavDropdown.Item>
+                <NavDropdown.Item href="#hospitals">Associated Hospitals</NavDropdown.Item>
+                <NavDropdown.Item href="#mission">Mission/Vision</NavDropdown.Item>
+                <NavDropdown.Item href="#medical-advisor">Medical Advisor</NavDropdown.Item>
+                <NavDropdown.Item href="#legal-advisor">Legal Advisor</NavDropdown.Item>
+                <NavDropdown.Item href="#board">Board of Directors</NavDropdown.Item>
+                <NavDropdown.Item href="#legal-docs">Legal Documents</NavDropdown.Item>
+                <NavDropdown.Item href="#terms">Terms and Conditions</NavDropdown.Item>
+                <NavDropdown.Item href="#refund">Refund Policy</NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="CAMPAIGN" id="CAMPAIGN-dropdown" show={campaignOpen}
+                onMouseEnter={() => setCampaignOpen(true)}
+                onMouseLeave={() => setCampaignOpen(false)}>
+                <NavDropdown.Item href="#RunningCampaign">Running Campaign</NavDropdown.Item>
+                <NavDropdown.Item href="#UpcommingCampaign">Upcomming Campaign</NavDropdown.Item>
+                <NavDropdown.Item href="#FoodCampaign">Food Campaign</NavDropdown.Item>
+                <NavDropdown.Item href="#EducationCampaign">Education Campaign</NavDropdown.Item>
+              </NavDropdown>
+              {/* <Nav.Link href="#donation-grid">CAMPAIGN</Nav.Link>
+              <Nav.Link href="#footer">GET INVOLVED</Nav.Link> */}
+              <NavDropdown title="GET INVOLVED" id="GETINVOLVED-dropdown" show={involvedOpen}
+                onMouseEnter={() => setInvolvedOpen(true)}
+                onMouseLeave={() => setInvolvedOpen(false)}>
+                <NavDropdown.Item href="#Career">Career</NavDropdown.Item>
+                <NavDropdown.Item href="#Volunteers">Volunteers</NavDropdown.Item>
+                <NavDropdown.Item href="#MemberWithUS">Member With US</NavDropdown.Item>
+                <NavDropdown.Item href="#PartnerwithUS">Partner with US</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link className="underLine"  href="#about">SUCCESS CASE</Nav.Link>
+              <Nav.Link className="underLine" href="#footer">CONTACT US</Nav.Link>
               {/* add by RJ */}
-              <Nav.Link href="#" onClick={() => setShowLegalModal(true)}>
+              <Nav.Link className="underLine" href="#" onClick={() => setShowLegalModal(true)}>
                 LEGAL DOCUMENT
               </Nav.Link>
             </Nav>

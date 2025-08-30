@@ -872,3 +872,52 @@ header {
   max-height: 70vh;
   object-fit: contain;
 }
+
+
+// Added by RJ on 30-08-2025
+/* Dropdown arrow ke liye */
+.dropdown > a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px; /* yahan gap de diya arrow aur text ke beech */
+  text-decoration: none;
+  color: black;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent; /* default no underline */
+}
+
+/* Hover hone par text + underline + arrow green */
+.dropdown > a:hover {
+  border-bottom: 2px solid green; /* green underline */
+  color: green;
+}
+
+.dropdown > a:hover::after {
+  color: green;
+}
+
+
+.underLine {
+  position: relative;
+  margin-left: 5px; /* arrow ke liye thoda gap */
+  text-decoration: none;
+    color: black;
+}
+
+.underLine::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* text ke neeche underline */
+  width: 0;
+  height: 2px;
+  background-color: green;
+  transition: width 0.3s ease-in-out;
+}
+
+.underLine:hover::after {
+  width: 100%;
+}
+
+
