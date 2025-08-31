@@ -16,32 +16,29 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
   const [showLegalModal, setShowLegalModal] = useState(false);
 
   const [index, setIndex] = useState(0);
-
   const images = [CarouselImg, CarouselImg2, CarouselImg3, Domi];
 
-  const handlePrev = () => {
-    setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
+  const handlePrev = () => setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const handleNext = () => setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 
-  const handleNext = () => {
-    setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
   const openWhatsApp = (message: string | number | boolean) => {
     const phoneNumber = "919004545410";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [campaignOpen, setCampaignOpen] = useState(false);
-  const [involvedOpen, setInvolvedOpen] = useState(false);
+  // 👇 ek hi state rakho
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
+  const toggleDropdown = (menu: string) => {
+    setOpenDropdown(openDropdown === menu ? null : menu);
+  };
 
   return (
     <header>
@@ -65,17 +62,24 @@ const Header = () => {
           Helping Hand Social Welfare Foundation
         </div>
       </div>
+
       {/* Main Navigation */}
       <Navbar expand="lg" variant="light" expanded={expanded}>
         <Container>
           <Navbar.Brand href="#">
             <img src={Logo} alt="Cancer Care Logo" className="logo" />
-            <h3 className="logo-title"></h3>
           </Navbar.Brand>
           <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
           <Navbar.Collapse>
             <Nav className="ms-auto nav-links">
-              <NavDropdown title="ABOUT" id="about-dropdown" show={aboutOpen} onMouseEnter={() => setAboutOpen(true)} onMouseLeave={() => setAboutOpen(false)}>
+              
+              {/* ABOUT */}
+              <NavDropdown
+                title="ABOUT"
+                id="about-dropdown"
+                show={openDropdown === "about"}
+                onClick={() => toggleDropdown("about")}
+              >
                 <NavDropdown.Item href="#about">About</NavDropdown.Item>
                 <NavDropdown.Item href="#events">Events & Gallery</NavDropdown.Item>
                 <NavDropdown.Item href="#hospitals">Associated Hospitals</NavDropdown.Item>
@@ -83,45 +87,51 @@ const Header = () => {
                 <NavDropdown.Item href="#medical-advisor">Medical Advisor</NavDropdown.Item>
                 <NavDropdown.Item href="#legal-advisor">Legal Advisor</NavDropdown.Item>
                 <NavDropdown.Item href="#board">Board of Directors</NavDropdown.Item>
-                <NavDropdown.Item href="#legal-docs">Legal Documents</NavDropdown.Item>
+                <NavDropdown.Item href="#legal-docs" onClick={() => setShowLegalModal(true)}>Legal Documents</NavDropdown.Item>
                 <NavDropdown.Item href="#terms">Terms and Conditions</NavDropdown.Item>
                 <NavDropdown.Item href="#refund">Refund Policy</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="CAMPAIGN" id="CAMPAIGN-dropdown" show={campaignOpen}
-                onMouseEnter={() => setCampaignOpen(true)}
-                onMouseLeave={() => setCampaignOpen(false)}>
+
+              {/* CAMPAIGN */}
+              <NavDropdown
+                title="CAMPAIGN"
+                id="campaign-dropdown"
+                show={openDropdown === "campaign"}
+                onClick={() => toggleDropdown("campaign")}
+              >
                 <NavDropdown.Item href="#RunningCampaign">Running Campaign</NavDropdown.Item>
-                <NavDropdown.Item href="#UpcommingCampaign">Upcomming Campaign</NavDropdown.Item>
+                <NavDropdown.Item href="#UpcommingCampaign">Upcoming Campaign</NavDropdown.Item>
                 <NavDropdown.Item href="#FoodCampaign">Food Campaign</NavDropdown.Item>
                 <NavDropdown.Item href="#EducationCampaign">Education Campaign</NavDropdown.Item>
               </NavDropdown>
-              {/* <Nav.Link href="#donation-grid">CAMPAIGN</Nav.Link>
-              <Nav.Link href="#footer">GET INVOLVED</Nav.Link> */}
-              <NavDropdown title="GET INVOLVED" id="GETINVOLVED-dropdown" show={involvedOpen}
-                onMouseEnter={() => setInvolvedOpen(true)}
-                onMouseLeave={() => setInvolvedOpen(false)}>
+
+              {/* GET INVOLVED */}
+              <NavDropdown
+                title="GET INVOLVED"
+                id="get-involved-dropdown"
+                show={openDropdown === "involved"}
+                onClick={() => toggleDropdown("involved")}
+              >
                 <NavDropdown.Item href="#Career">Career</NavDropdown.Item>
                 <NavDropdown.Item href="#Volunteers">Volunteers</NavDropdown.Item>
                 <NavDropdown.Item href="#MemberWithUS">Member With US</NavDropdown.Item>
                 <NavDropdown.Item href="#PartnerwithUS">Partner with US</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link className="underLine"  href="#about">SUCCESS CASE</Nav.Link>
+
+              <Nav.Link className="underLine" href="#about">SUCCESS CASE</Nav.Link>
               <Nav.Link className="underLine" href="#footer">CONTACT US</Nav.Link>
-              {/* add by RJ */}
-              <Nav.Link className="underLine" href="#" onClick={() => setShowLegalModal(true)}>
+              {/* <Nav.Link className="underLine" href="#" onClick={() => setShowLegalModal(true)}>
                 LEGAL DOCUMENT
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
             <div className="buttons">
-
               <Donate />
-              {/* <Button className="login">Login Now</Button> */}
             </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
-      {/* WhatsApp Floating Button */}
+      {/* WhatsApp Floating */}
       <div className="whatsapp-float" onClick={handleOpenModal}>
         <WhatsApp />
       </div>
@@ -152,8 +162,7 @@ const Header = () => {
         </Modal.Body>
       </Modal>
 
-      {/* Add by RJ */}
-      {/* Legal Document Modal */}
+      {/* Legal Modal */}
       <Modal
         show={showLegalModal}
         onHide={() => setShowLegalModal(false)}
@@ -165,19 +174,16 @@ const Header = () => {
         </Modal.Header>
 
         <Modal.Body className="d-flex align-items-center justify-content-center">
-          {/* Left Arrow */}
           <button className="custom-arrow left-arrow" onClick={handlePrev}>
             <FaArrowLeft size={28} />
           </button>
 
-          {/* Document Image */}
           <img
             src={images[index]}
             alt={`Document ${index + 1}`}
             className="doc-image"
           />
 
-          {/* Right Arrow */}
           <button className="custom-arrow right-arrow" onClick={handleNext}>
             <FaArrowRight size={28} />
           </button>
@@ -192,5 +198,6 @@ const Header = () => {
     </header>
   );
 };
+
 
 export default Header;
