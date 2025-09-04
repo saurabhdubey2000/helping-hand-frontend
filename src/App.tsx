@@ -8,19 +8,21 @@ import Detail from './pages/Detail';
 import DonationGrid from './pages/DonationGrid';
 import Volunteer from './pages/Volunteer';
 import Footer from './components/Footer';
+import Router from './routes/Router';
 // import Router from './routes/Router'
 
 function App() {
 
   return (
     <div>
-      <Header/>
+      {/* <Header/>
       <CarouselComponent/>
       <About/>
       <Detail/>
       <DonationGrid/>
       <Volunteer/>
-      <Footer/>
+      <Footer/> */}
+      <Router/>
     </div>
   )
 }

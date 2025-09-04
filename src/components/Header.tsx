@@ -1,5 +1,6 @@
 import "../assets/styles/global.scss";
 import { Phone, Email } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { useState } from "react";
@@ -33,7 +34,6 @@ const Header = () => {
     window.open(url, "_blank");
   };
 
-  // 👇 ek hi state rakho
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleDropdown = (menu: string) => {
@@ -42,7 +42,6 @@ const Header = () => {
 
   return (
     <header>
-      {/* Top Bar */}
       <div className="top-bar">
         <div className="desktop-view">
           <span>Welcome to Helping Hand Social Welfare Foundation</span>
@@ -63,7 +62,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main Navigation */}
       <Navbar expand="lg" variant="light" expanded={expanded}>
         <Container>
           <Navbar.Brand href="#">
@@ -73,56 +71,50 @@ const Header = () => {
           <Navbar.Collapse>
             <Nav className="ms-auto nav-links">
               
-              {/* ABOUT */}
               <NavDropdown
                 title="ABOUT"
                 id="about-dropdown"
                 show={openDropdown === "about"}
                 onClick={() => toggleDropdown("about")}
               >
-                <NavDropdown.Item href="#about">About</NavDropdown.Item>
-                <NavDropdown.Item href="#events">Events & Gallery</NavDropdown.Item>
-                <NavDropdown.Item href="#hospitals">Associated Hospitals</NavDropdown.Item>
-                <NavDropdown.Item href="#mission">Mission/Vision</NavDropdown.Item>
-                <NavDropdown.Item href="#medical-advisor">Medical Advisor</NavDropdown.Item>
-                <NavDropdown.Item href="#legal-advisor">Legal Advisor</NavDropdown.Item>
-                <NavDropdown.Item href="#board">Board of Directors</NavDropdown.Item>
-                <NavDropdown.Item href="#legal-docs" onClick={() => setShowLegalModal(true)}>Legal Documents</NavDropdown.Item>
-                <NavDropdown.Item href="#terms">Terms and Conditions</NavDropdown.Item>
-                <NavDropdown.Item href="#refund">Refund Policy</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/about-section">About</NavDropdown.Item>
+                <NavDropdown.Item>Events & Gallery</NavDropdown.Item>
+                <NavDropdown.Item>Associated Hospitals</NavDropdown.Item>
+                <NavDropdown.Item>Mission/Vision</NavDropdown.Item>
+                <NavDropdown.Item>Medical Advisor</NavDropdown.Item>
+                <NavDropdown.Item>Legal Advisor</NavDropdown.Item>
+                <NavDropdown.Item>Board of Directors</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => setShowLegalModal(true)}>Legal Documents</NavDropdown.Item>
+                <NavDropdown.Item>Terms and Conditions</NavDropdown.Item>
+                <NavDropdown.Item>Refund Policy</NavDropdown.Item>
               </NavDropdown>
 
-              {/* CAMPAIGN */}
               <NavDropdown
                 title="CAMPAIGN"
                 id="campaign-dropdown"
                 show={openDropdown === "campaign"}
                 onClick={() => toggleDropdown("campaign")}
               >
-                <NavDropdown.Item href="#RunningCampaign">Running Campaign</NavDropdown.Item>
-                <NavDropdown.Item href="#UpcommingCampaign">Upcoming Campaign</NavDropdown.Item>
-                <NavDropdown.Item href="#FoodCampaign">Food Campaign</NavDropdown.Item>
-                <NavDropdown.Item href="#EducationCampaign">Education Campaign</NavDropdown.Item>
+                <NavDropdown.Item>Running Campaign</NavDropdown.Item>
+                <NavDropdown.Item>Upcoming Campaign</NavDropdown.Item>
+                <NavDropdown.Item>Food Campaign</NavDropdown.Item>
+                <NavDropdown.Item>Education Campaign</NavDropdown.Item>
               </NavDropdown>
 
-              {/* GET INVOLVED */}
               <NavDropdown
                 title="GET INVOLVED"
                 id="get-involved-dropdown"
                 show={openDropdown === "involved"}
                 onClick={() => toggleDropdown("involved")}
               >
-                <NavDropdown.Item href="#Career">Career</NavDropdown.Item>
-                <NavDropdown.Item href="#Volunteers">Volunteers</NavDropdown.Item>
-                <NavDropdown.Item href="#MemberWithUS">Member With US</NavDropdown.Item>
-                <NavDropdown.Item href="#PartnerwithUS">Partner with US</NavDropdown.Item>
+                <NavDropdown.Item>Career</NavDropdown.Item>
+                <NavDropdown.Item>Volunteers</NavDropdown.Item>
+                <NavDropdown.Item>Member With US</NavDropdown.Item>
+                <NavDropdown.Item>Partner with US</NavDropdown.Item>
               </NavDropdown>
 
-              <Nav.Link className="underLine" href="#about">SUCCESS CASE</Nav.Link>
-              <Nav.Link className="underLine" href="#footer">CONTACT US</Nav.Link>
-              {/* <Nav.Link className="underLine" href="#" onClick={() => setShowLegalModal(true)}>
-                LEGAL DOCUMENT
-              </Nav.Link> */}
+              <Nav.Link className="underLine">SUCCESS CASE</Nav.Link>
+              <Nav.Link className="underLine">CONTACT US</Nav.Link>
             </Nav>
             <div className="buttons">
               <Donate />
@@ -131,12 +123,10 @@ const Header = () => {
         </Container>
       </Navbar>
 
-      {/* WhatsApp Floating */}
       <div className="whatsapp-float" onClick={handleOpenModal}>
         <WhatsApp />
       </div>
 
-      {/* WhatsApp Modal */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Contact Us on WhatsApp</Modal.Title>
@@ -162,7 +152,6 @@ const Header = () => {
         </Modal.Body>
       </Modal>
 
-      {/* Legal Modal */}
       <Modal
         show={showLegalModal}
         onHide={() => setShowLegalModal(false)}
